@@ -7,11 +7,6 @@ main()
     char calculate = 'Y';
     do 
     {
-        cin.clear();
-        cout.clear();
-        fflush(stdin);
-        fflush(stdout);
-
         double a, b;
 
         cout << "Enter first number: " << endl;
@@ -19,6 +14,7 @@ main()
         cout << "Enter second number: " << endl;
         cin >> b;
 
+        // TODO: On second time around output stops here for some reason...
         cout << "What mathematical operation do you want to perform? " << endl;
         cout << "+ : addition" << endl;
         cout << "- : subtraction" << endl;
