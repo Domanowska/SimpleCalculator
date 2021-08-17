@@ -24,9 +24,6 @@ main()
         char operation;
         cin >> operation;
 
-        // Clear console
-        system("cls"); // "clear" on MacOS
-
         switch(operation)
         {
             case '+':
