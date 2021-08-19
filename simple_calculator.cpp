@@ -4,6 +4,8 @@ using namespace std;
 
 // Welcome the user to the calculator program
 void welcome_message();
+// Asks the user to enter a number, returns the number
+int ask_for_num();
 
 main()
 {
@@ -12,10 +14,8 @@ main()
     char calculate = 'Y';
     do 
     {
-        double a, b;
+        double a = ask_for_num(), b;
 
-        cout << "Enter first number: " << endl;
-        cin >> a;
         cout << "Enter second number: " << endl;
         cin >> b;
 
@@ -57,10 +57,20 @@ main()
 
 void welcome_message()
 {
-    cout << "##### ------------------ SIMPLE CALCULATOR ----------------- #####" << endl;
-    cout << "------------------------------------------------------------------" << endl;
-    cout << "Welcome! This simple calculator can perform simple calculations..." << endl;
+    cout << "##### ----------------- SIMPLE CALCULATOR ---------------- #####" << endl;
+    cout << "----------------------------------------------------------------" << endl;
+    cout << "Welcome! This simple calculator can perform simple calculations." << endl;
+    cout << "You will be asked to enter two numbers and then an operation... " << endl;
     cout << "... Lets start!" << endl;
     cout << "" << endl;
+}
+
+int ask_for_num()
+{
+    double a;
+    cout << "Enter a number:    ";
+    cin >> a;
+
+    return a;
 }
 
