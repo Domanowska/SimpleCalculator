@@ -2,8 +2,13 @@
 
 using namespace std;
 
+// Welcome the user to the calculator program
+void welcome_message();
+
 main()
 {
+    welcome_message();
+
     char calculate = 'Y';
     do 
     {
@@ -49,3 +54,13 @@ main()
         cin >> calculate;
     } while (calculate == 'Y' || calculate == 'y');
 }
+
+void welcome_message()
+{
+    cout << "##### ------------------ SIMPLE CALCULATOR ----------------- #####" << endl;
+    cout << "------------------------------------------------------------------" << endl;
+    cout << "Welcome! This simple calculator can perform simple calculations..." << endl;
+    cout << "... Lets start!" << endl;
+    cout << "" << endl;
+}
+
