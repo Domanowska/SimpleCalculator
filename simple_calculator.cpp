@@ -14,10 +14,7 @@ main()
     char calculate = 'Y';
     do 
     {
-        double a = ask_for_num(), b;
-
-        cout << "Enter second number: " << endl;
-        cin >> b;
+        double a = ask_for_num(), b = ask_for_num();
 
         // TODO: On second time around output stops here for some reason...
         cout << "What mathematical operation do you want to perform? " << endl;
