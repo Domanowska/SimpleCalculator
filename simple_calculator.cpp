@@ -6,6 +6,8 @@ using namespace std;
 void welcome_message();
 // Asks the user to enter a number, returns the number
 int ask_for_num();
+// Asks the user to enter an operation, returns the character
+char ask_for_op();
 
 main()
 {
@@ -15,16 +17,7 @@ main()
     do 
     {
         double a = ask_for_num(), b = ask_for_num();
-
-        // TODO: On second time around output stops here for some reason...
-        cout << "What mathematical operation do you want to perform? " << endl;
-        cout << "+ : addition" << endl;
-        cout << "- : subtraction" << endl;
-        cout << "* : multiplication" << endl;
-        cout << "/ : division" << endl;
-
-        char operation;
-        cin >> operation;
+        char operation = ask_for_op();
 
         switch(operation)
         {
@@ -69,5 +62,19 @@ int ask_for_num()
     cin >> a;
 
     return a;
+}
+
+char ask_for_op()
+{
+    char operation;
+    cout << "Available mathematical operations:    " << endl;
+    cout << "+ : addition" << endl;
+    cout << "- : subtraction" << endl;
+    cout << "* : multiplication" << endl;
+    cout << "/ : division" << endl;
+    cout << "Enter an operation:    ";
+    cin >> operation;
+
+    return operation;
 }
 
