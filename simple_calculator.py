@@ -1,22 +1,45 @@
 import os
 
+
+def welcome_message():
+    print(
+        '''
+        ##### ----------------- SIMPLE CALCULATOR ---------------- #####
+        ----------------------------------------------------------------
+        Welcome! This simple calculator can perform simple calculations.
+        You will be asked to enter two numbers and then an operation... 
+        ... Lets start!
+        
+        '''
+    )
+
+
+def ask_for_num() -> int:
+    return int(input("Enter a number: "))
+
+
+def ask_for_op() -> str:
+    return input(
+        '''
+        Available mathematical operations:    
+        +: addition
+        -: subtraction
+        *: multiplication
+        /: division
+        Enter an operation: 
+        '''
+    )
+
+
 if __name__ == "__main__":
     calculate: bool = True
 
+    welcome_message()
+
     while calculate:
-        a = int(input("Enter first number: "))
-        b = int(input("Enter second number: "))
+        a, b = ask_for_num(), ask_for_num()
 
-        operation = input(
-            'What mathematical operation would you like to perform? \n'
-            '+: addition \n'
-            '-: subtraction \n'
-            '*: multiplication \n'
-            '/: division \n'
-        )
-
-        # Clear console
-        os.system('clear')
+        operation: str = ask_for_op()
 
         if operation == '+':
             print(f"{a} + {b} = {a + b}")
@@ -31,7 +54,6 @@ if __name__ == "__main__":
                 print("Cannot divide by zero!")
         else:
             print(f"The operation: '{operation}', is not supported!")
-
 
         # CHECK IF USER WANTS TO EXIT
         decision = input("Keep calculating? (Y/N) ")
