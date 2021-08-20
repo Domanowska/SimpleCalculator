@@ -2,16 +2,13 @@ import os
 
 
 def welcome_message():
-    print(
-        '''
-        ##### ----------------- SIMPLE CALCULATOR ---------------- #####
-        ----------------------------------------------------------------
-        Welcome! This simple calculator can perform simple calculations.
-        You will be asked to enter two numbers and then an operation... 
-        ... Lets start!
-        
-        '''
-    )
+    print('''
+##### ----------------- SIMPLE CALCULATOR ---------------- #####
+----------------------------------------------------------------
+Welcome! This simple calculator can perform simple calculations.
+You will be asked to enter two numbers and then an operation... 
+... Lets start!
+    ''')
 
 
 def ask_for_num() -> int:
@@ -19,16 +16,14 @@ def ask_for_num() -> int:
 
 
 def ask_for_op() -> str:
-    return input(
-        '''
-        Available mathematical operations:    
-        +: addition
-        -: subtraction
-        *: multiplication
-        /: division
-        Enter an operation: 
-        '''
-    )
+    print('''
+Available mathematical operations:    
++: addition
+-: subtraction
+*: multiplication
+/: division
+    ''')
+    return input("Enter an operation: ")
 
 
 if __name__ == "__main__":
