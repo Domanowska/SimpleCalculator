@@ -2,12 +2,16 @@
 
 using namespace std;
 
+
+// Available math operations
+enum mathOperation {add=1,subtract,multiply,divide};
+
 // Welcome the user to the calculator program
 void welcome_message();
 // Asks the user to enter a number, returns the number
 int ask_for_num();
-// Asks the user to enter an operation, returns the character
-char ask_for_op();
+// Asks the user to enter an operation, performs the operation, returns the result
+void perform_operation(double, double);
 
 main()
 {
@@ -17,30 +21,9 @@ main()
     do 
     {
         double a = ask_for_num(), b = ask_for_num();
-        char operation = ask_for_op();
-
-        switch(operation)
-        {
-            case '+':
-                cout << a << " + " << b << " = " << a + b << endl;
-                break;
-            case '-':
-                cout << a << " - " << b << " = " << a - b << endl;
-                break;
-            case '*':
-                cout << a << " * " << b << " = " << a * b << endl;
-                break;
-            case '/':
-                if (b)
-                    cout << a << " / " << b << " = " << a / b << endl;
-                else
-                    cout << "Cannot divide by 0!" << endl;
-                break;
-            default:
-                cout << "That operation is not supported!" << endl;
-        }
+        perform_operation(a, b);
     
-        cout << "Continue calculating? (Y/N) " << endl;
+        cout << "Continue calculating? (Y? Only Y or y will continue...) " << endl;
         cin >> calculate;
     } while (calculate == 'Y' || calculate == 'y');
 }
@@ -52,7 +35,7 @@ void welcome_message()
     cout << "Welcome! This simple calculator can perform simple calculations." << endl;
     cout << "You will be asked to enter two numbers and then an operation... " << endl;
     cout << "... Lets start!" << endl;
-    cout << "" << endl;
+    cout << endl << endl;
 }
 
 int ask_for_num()
@@ -64,17 +47,37 @@ int ask_for_num()
     return a;
 }
 
-char ask_for_op()
+void perform_operation(double a, double b)
 {
-    char operation;
+    int choice;
     cout << "Available mathematical operations:    " << endl;
-    cout << "+ : addition" << endl;
-    cout << "- : subtraction" << endl;
-    cout << "* : multiplication" << endl;
-    cout << "/ : division" << endl;
-    cout << "Enter an operation:    ";
-    cin >> operation;
+    cout << "1. + : addition" << endl;
+    cout << "2. - : subtraction" << endl;
+    cout << "3. * : multiplication" << endl;
+    cout << "4. / : division" << endl;
+    cout << "Enter the number of an operation:    ";
+    cin >> choice;
 
-    return operation;
+    mathOperation operation = mathOperation(choice);
+    
+    switch(operation)
+        {
+            case add:
+                cout << a << " + " << b << " = " << a + b << endl;
+                break;
+            case subtract:
+                cout << a << " - " << b << " = " << a - b << endl;
+                break;
+            case multiply:
+                cout << a << " * " << b << " = " << a * b << endl;
+                break;
+            case divide:
+                if (b)
+                    cout << a << " / " << b << " = " << a / b << endl;
+                else
+                    cout << "Cannot divide by 0!" << endl;
+                break;
+            default:
+                cout << "That operation is not supported!" << endl;
+        }
 }
-
